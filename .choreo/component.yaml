@@ -1,0 +1,11 @@
+schemaVersion: 1.1
+endpoints:
+  - name: nezha
+    # +optional Display name for the endpoint.
+    displayName: nezha
+    service:
+      basePath: /
+      port: 80
+    type: REST
+    networkVisibilities:
+      - Public
