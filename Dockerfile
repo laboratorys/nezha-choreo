@@ -21,13 +21,12 @@ RUN curl -L "https://github.com/nezhahq/nezha/releases/download/v${NEZHA_VERSION
 #    && rm backup-to-github.tar.gz \
 #COPY dashboard .
 #RUN chmod +x /home/10014/app/dashboard
-#RUN mkdir "data"
-#COPY config.yaml data
-#RUN chmod +x /app/data/config.yaml
+RUN mkdir "data"
+COPY config.yaml data
 
 
 # Expose port 80 to make the web server accessible
-EXPOSE 8008
+EXPOSE 8090
 
 # Start Nginx when the container launches
-CMD ["/app/dashboard"]
+CMD ["/app/dashboard", "-c", "/app/data/config.yaml"]

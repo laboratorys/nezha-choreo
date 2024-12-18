@@ -1,11 +1,10 @@
 schemaVersion: 1.1
 endpoints:
   - name: nezha
-    # +optional Display name for the endpoint.
     displayName: nezha
     service:
       basePath: /
-      port: 8008
+      port: 8090
     type: REST
     networkVisibilities:
       - Public

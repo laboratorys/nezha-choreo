@@ -1,6 +1,6 @@
 debug: false
 listenport: 8090
 language: zh_CN
-sitename: "nz_site_title333"
+sitename: "Libs vps"
 installhost: vps.noki.eu.org
 tls: true
