@@ -18,13 +18,13 @@ RUN curl -L "https://github.com/nezhahq/nezha/releases/download/v${NEZHA_VERSION
     && unzip dashboard-linux-amd64.zip \
     && mv dashboard-linux-amd64 dashboard \
     && chmod +x dashboard
+
 #    && rm backup-to-github.tar.gz \
 #COPY dashboard .
 #RUN chmod +x /home/10014/app/dashboard
 RUN mkdir data
-COPY config.yaml data
-RUN chmod 777 /app/data
-RUN chmod 777 /app/data/config.yaml
+RUN curl -L  "https://raw.githubusercontent.com/laboratorys/nezha-choreo/refs/heads/main/config.yaml" -o /app/data/config.yaml
+#COPY config.yaml data
 
 
 # Expose port 80 to make the web server accessible
