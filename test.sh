@@ -1,3 +1,3 @@
-docker stop nezha-v1-cf
-docker rm nezha-v1-cf
-docker run -d -p 8090:8090 --name nezha-v1-cf nezha-v1-cf
+docker stop nezha-dashboard-choreo
+docker rm nezha-dashboard-choreo
+docker run -d -p 8090:8090 --name nezha-dashboard-choreo nezha-dashboard-choreo

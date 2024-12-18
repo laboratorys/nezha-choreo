@@ -1,0 +1,6 @@
+debug: false
+listenport: 8090
+language: zh_CN
+sitename: "nz_site_title"
+installhost: vps.noki.eu.org
+tls: true
