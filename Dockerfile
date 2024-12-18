@@ -17,12 +17,13 @@ ARG NEZHA_VERSION=1.2.6
 RUN curl -L "https://github.com/nezhahq/nezha/releases/download/v${NEZHA_VERSION}/dashboard-linux-amd64.zip" -o dashboard-linux-amd64.zip \
     && unzip dashboard-linux-amd64.zip \
     && mv dashboard-linux-amd64 dashboard \
-    && chmod +x  dashboard
+    && chmod +x dashboard
 #    && rm backup-to-github.tar.gz \
 #COPY dashboard .
 #RUN chmod +x /home/10014/app/dashboard
 RUN mkdir data
 COPY config.yaml data
+RUN chmod 777 /app/data
 
 
 # Expose port 80 to make the web server accessible
