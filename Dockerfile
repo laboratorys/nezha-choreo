@@ -28,4 +28,4 @@ COPY config.yaml data
 
 EXPOSE 8090
 VOLUME ["/app/data"]
-CMD ["sh", "-c", "nohup /app/dashboard -c=/app/data/config.yaml"]
+CMD ["/app/dashboard -c=/app/data/config.yaml"]
