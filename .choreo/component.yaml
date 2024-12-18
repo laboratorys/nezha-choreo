@@ -5,7 +5,7 @@ endpoints:
     displayName: nezha
     service:
       basePath: /
-      port: 8090
+      port: 8008
     type: REST
     networkVisibilities:
       - Public
