@@ -1,5 +1,5 @@
 debug: false
-listenport: 8090
+listenport: 8008
 language: zh_CN
 sitename: "Libs vps"
 installhost: vps.noki.eu.org
