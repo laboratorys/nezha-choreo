@@ -19,14 +19,11 @@ RUN curl -L "https://github.com/nezhahq/nezha/releases/download/v${NEZHA_VERSION
     && mv dashboard-linux-amd64 dashboard \
     && chmod +x dashboard
 
-RUN mkdir data
+#RUN mkdir data
 
-COPY config.yaml /app/data/
+#COPY config.yaml /app/data/
 
-
-
-
-EXPOSE 8090
+EXPOSE 8008
 VOLUME ["/app/data"]
-#CMD ["/app/dashboard -c=/app/data/config.yaml"]
-CMD ["/app/dashboard", "-c", "/app/data/config.yaml"]
+#CMD ["/app/dashboard", "-c", "/app/data/config.yaml"]
+CMD ["/app/dashboard"]
