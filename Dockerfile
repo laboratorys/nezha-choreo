@@ -24,6 +24,7 @@ RUN curl -L "https://github.com/nezhahq/nezha/releases/download/v${NEZHA_VERSION
 RUN mkdir data
 COPY config.yaml data
 RUN chmod 777 /app/data
+RUN chmod 777 /app/data/config.yaml
 
 
 # Expose port 80 to make the web server accessible
