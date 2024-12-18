@@ -25,8 +25,7 @@ RUN mkdir "data"
 COPY config.yaml data
 
 
-# Expose port 80 to make the web server accessible
-EXPOSE 8090
 
-# Start Nginx when the container launches
-CMD ["/app/dashboard", "-c", "/app/data/config.yaml"]
+EXPOSE 8090
+VOLUME ["/app/data"]
+CMD ["sh", "-c", "nohup /app/dashboard -c=/app/data/config.yaml"]
