@@ -1,4 +1,4 @@
-localhost:8090 {
+http://localhost:8090 {
     @grpcProto {
         path /proto.NezhaService/*
     }
@@ -16,7 +16,7 @@ localhost:8090 {
 
     reverse_proxy {
         header_up Host {host}
-        header_up Origin https://{host}
+        header_up Origin http://{host}
         # header_up nz-realip {http.CF-Connecting-IP} # 替换为你的 CDN 提供的私有 header，此处为 CloudFlare 默认
         header_up nz-realip {remote_host} # 如果你使用caddy作为最外层，就把上面一行注释掉，启用此行
         header_up Upgrade {http.upgrade} # Agent 开启 tls 通信时注释掉此行

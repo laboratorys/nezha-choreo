@@ -10,9 +10,9 @@ RUN addgroup -g 10014 choreo && \
 WORKDIR /app
 
 ARG CADDY_VERSION=2.8.4
-RUN curl -L "https://github.com/caddyserver/caddy/releases/download/v${CADDY_VERSION}/caddy_v${CADDY_VERSION}_linux_amd64.tar.gz" -o caddy.tar.gz \
+RUN curl -L "https://github.com/caddyserver/caddy/releases/download/v${CADDY_VERSION}/caddy_${CADDY_VERSION}_linux_amd64.tar.gz" -o caddy.tar.gz \
    && tar -xzf caddy.tar.gz \
-   && rm caddy.tar.gz \
+   && rm caddy.tar.gz LICENSE README.md \
    && chmod +x caddy
 
 ARG BAK_VERSION=2.0
@@ -25,14 +25,17 @@ ARG NEZHA_VERSION=1.2.6
 RUN curl -L "https://github.com/nezhahq/nezha/releases/download/v${NEZHA_VERSION}/dashboard-linux-amd64.zip" -o dashboard-linux-amd64.zip \
     && unzip dashboard-linux-amd64.zip \
     && mv dashboard-linux-amd64 dashboard \
+    && rm dashboard-linux-amd64.zip \
     && chmod +x dashboard
 
 COPY caddy_file /app
+COPY entrypoint.sh /app
+RUN chmod +x /app/entrypoint.sh
 
 RUN mkdir -p /app/data && chown -R choreouser:choreo /app/data
 
-
 USER 10014
-EXPOSE 8008
+EXPOSE 8090
 WORKDIR /app
-CMD ["sh", "-c", "nohub /app/caddy -conf /app/caddy_file & /app/dashboard"]
+#CMD ["sh", "-c", "nohup /app/caddy -conf=/app/caddy_file & /app/dashboard"]
+ENTRYPOINT ["/bin/sh", "-c", "/app/entrypoint.sh"]
