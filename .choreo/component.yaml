@@ -11,7 +11,7 @@ endpoints:
   - name: nezha-ws
     displayName: nezha-ws
     service:
-      basePath: /api/v1/ws/*
+      basePath: /api/v1/ws
       port: 8008
     type: WS
     networkVisibilities:
