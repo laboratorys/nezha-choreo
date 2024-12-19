@@ -23,9 +23,7 @@ RUN mkdir -p /app/data && chown -R choreouser:choreo /app/data
 
 COPY config.yaml /app/data
 
-
 USER 10014
 EXPOSE 8008
 WORKDIR /app
-VOLUME ["/app/data"]
 CMD ["sh", "-c", "/app/dashboard"]
