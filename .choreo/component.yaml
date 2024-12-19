@@ -1,23 +1,23 @@
 schemaVersion: 1.1
 endpoints:
-  - name: nezha-ws
-    displayName: nezha-ws
+  - name: nezhaWS
+    displayName: nezhaWS
     service:
       basePath: /api/v1/ws/
       port: 8008
     type: WS
     networkVisibilities:
       - Public
-  - name: nezha-gRPC
-    displayName: nezha-gRPC
+  - name: nezhaGRPC
+    displayName: nnezhaGRPC
     service:
       basePath: /proto.NezhaService/
       port: 8008
     type: gRPC
     networkVisibilities:
       - Public
-  - name: nezha-web
-    displayName: nezha
+  - name: nezhaWeb
+    displayName: nezhaWeb
     service:
       basePath: /
       port: 8008
