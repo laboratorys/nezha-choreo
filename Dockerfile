@@ -12,7 +12,7 @@ ARG BAK_VERSION=2.0
 RUN cd $WORKDIR && curl -L "https://github.com/laboratorys/backup-to-github/releases/download/v${BAK_VERSION}/backup2gh-v${BAK_VERSION}-linux-amd64.tar.gz" -o backup-to-github.tar.gz \
     && tar -xzf backup-to-github.tar.gz \
     && rm backup-to-github.tar.gz \
-    &&  && chmod +x backup2gh
+    && chmod +x backup2gh
 ARG NEZHA_VERSION=1.2.6
 RUN curl -L "https://github.com/nezhahq/nezha/releases/download/v${NEZHA_VERSION}/dashboard-linux-amd64.zip" -o dashboard-linux-amd64.zip \
     && unzip dashboard-linux-amd64.zip \
