@@ -11,7 +11,7 @@ endpoints:
   - name: nezha_grpc
     displayName: nezha_grpc
     service:
-      basePath: /proto.NezhaService/
+      basePath: /proto
       port: 8008
     type: GRPC
     networkVisibilities:
