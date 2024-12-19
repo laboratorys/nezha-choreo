@@ -1,10 +1,18 @@
 schemaVersion: 1.1
 endpoints:
+  - name: nezha_ws
+    displayName: nezha_ws
+    service:
+      basePath: /api/v1/ws/server
+      port: 8090
+    type: WS
+    networkVisibilities:
+      - Public
   - name: nezha_web
     displayName: nezha_web
     service:
       basePath: /
       port: 8090
-    type: TCP
+    type: REST
     networkVisibilities:
       - Public
