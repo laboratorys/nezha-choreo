@@ -37,5 +37,4 @@ RUN mkdir -p /app/data && chown -R choreouser:choreo /app/data
 USER 10014
 EXPOSE 8090
 WORKDIR /app
-#CMD ["sh", "-c", "nohup /app/caddy -conf=/app/caddy_file & /app/dashboard"]
 ENTRYPOINT ["/bin/sh", "-c", "/app/entrypoint.sh"]

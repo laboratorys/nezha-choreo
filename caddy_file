@@ -1,12 +1,18 @@
 http://localhost:8090 {
+    @websocket {
+        path /api/v1/ws/*
+    }
+    reverse_proxy @websocket {
+        header_up Connection "upgrade"
+        to localhost:8008
+    }
     @grpcProto {
         path /proto.NezhaService/*
     }
 
     reverse_proxy @grpcProto {
         header_up Host {host}
-        # header_up nz-realip {http.CF-Connecting-IP} # 替换为你的 CDN 提供的私有 header，此处为 CloudFlare 默认
-        header_up nz-realip {remote_host} # 如果你使用caddy作为最外层，就把上面一行注释掉，启用此行
+        header_up nz-realip {remote_host}
         transport http {
             versions h2c
             read_buffer 4096
@@ -17,9 +23,8 @@ http://localhost:8090 {
     reverse_proxy {
         header_up Host {host}
         header_up Origin http://{host}
-        # header_up nz-realip {http.CF-Connecting-IP} # 替换为你的 CDN 提供的私有 header，此处为 CloudFlare 默认
-        header_up nz-realip {remote_host} # 如果你使用caddy作为最外层，就把上面一行注释掉，启用此行
-        header_up Upgrade {http.upgrade} # Agent 开启 tls 通信时注释掉此行
+        header_up nz-realip {remote_host}
+        header_up Upgrade {http.upgrade}
         header_up Connection "upgrade"
         transport http {
             read_buffer 16384
