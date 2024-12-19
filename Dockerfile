@@ -19,11 +19,13 @@ RUN curl -L "https://github.com/nezhahq/nezha/releases/download/v${NEZHA_VERSION
     && mv dashboard-linux-amd64 dashboard \
     && chmod +x dashboard
 
-RUN mkdir data
+RUN mkdir -p /app/data && chown -R choreouser:choreo /app/data
 
-COPY config.yaml /app/data/
+COPY config.yaml /app/data
+
 
 USER 10014
 EXPOSE 8008
+WORKDIR /app
 VOLUME ["/app/data"]
-CMD ["/app/dashboard"]
+CMD ["sh", "-c", "/app/dashboard"]
