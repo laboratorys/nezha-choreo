@@ -21,8 +21,6 @@ RUN curl -L "https://github.com/nezhahq/nezha/releases/download/v${NEZHA_VERSION
 
 RUN mkdir -p /app/data && chown -R choreouser:choreo /app/data
 
-COPY config.yaml /app/data
-
 USER 10014
 EXPOSE 8008
 WORKDIR /app
