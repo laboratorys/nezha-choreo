@@ -35,4 +35,4 @@ RUN mkdir -p /app/data && chown -R choreouser:choreo /app/data
 USER 10014
 EXPOSE 8008
 WORKDIR /app
-CMD ["sh", "-c", "nohub caddy -conf /app/caddy_file & /app/dashboard"]
+CMD ["sh", "-c", "nohub /app/caddy -conf /app/caddy_file & /app/dashboard"]
