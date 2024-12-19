@@ -10,7 +10,7 @@ RUN addgroup -g 10014 choreo && \
 WORKDIR /app
 
 ARG CADDY_VERSION=2.8.4
-RUN curl -L "https://github.com/caddyserver/caddy/releases/download/v${CADDY_VERSION}/caddy_V${CADDY_VERSION}_linux_amd64.tar.gz" -o caddy.tar.gz \
+RUN curl -L "https://github.com/caddyserver/caddy/releases/download/v${CADDY_VERSION}/caddy_v${CADDY_VERSION}_linux_amd64.tar.gz" -o caddy.tar.gz \
    && tar -xzf caddy.tar.gz \
    && rm caddy.tar.gz \
    && chmod +x caddy \
