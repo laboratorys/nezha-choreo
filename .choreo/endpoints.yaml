@@ -31,7 +31,7 @@ endpoints:
     networkVisibility: Public
     # +optional Context (base path) of the API that is exposed via this endpoint.
     # This is mandatory if the endpoint type is set to REST or GraphQL.
-    context: /api/v1/ws/server
+    context: /api/v1/ws/
   - name: Web
     # +required Numeric port value that gets exposed via this endpoint
     port: 8008
