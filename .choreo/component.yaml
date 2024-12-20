@@ -4,7 +4,7 @@ endpoints:
     displayName: nezha_ws
     service:
       basePath: /api/v1/ws/server
-      port: 8090
+      port: 8008
     type: WS
     networkVisibilities:
       - Public
@@ -12,7 +12,7 @@ endpoints:
     displayName: nezha_web
     service:
       basePath: /
-      port: 8090
+      port: 8008
     type: REST
     networkVisibilities:
       - Public
