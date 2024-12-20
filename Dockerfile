@@ -32,9 +32,9 @@ COPY caddy_file.txt /app
 COPY entrypoint.sh /app
 RUN chmod +x /app/entrypoint.sh
 
-RUN mkdir -p /app/data && chown -R choreouser:choreo /app/data
+RUN mkdir -p /app/data #&& chown -R choreouser:choreo /app/data
 
-USER 10014
+#USER 10014
 EXPOSE 8090
 WORKDIR /app
 ENTRYPOINT ["/bin/sh", "-c", "/app/entrypoint.sh"]
