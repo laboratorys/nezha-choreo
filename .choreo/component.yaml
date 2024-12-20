@@ -3,16 +3,16 @@ endpoints:
   - name: nezha_ws
     displayName: nezha_ws
     service:
-      basePath: /
+      basePath: /api/v1/ws/server
       port: 8090
-    type: REST
+    type: WS
     networkVisibilities:
       - Public
   - name: nezha_web
     displayName: nezha_web
     service:
-      basePath: /api/v1/ws/server
+      basePath: /
       port: 8090
-    type: WS
+    type: REST
     networkVisibilities:
       - Public
