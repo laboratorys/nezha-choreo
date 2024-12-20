@@ -9,7 +9,6 @@ http://localhost:8090 {
     @grpcProto {
         path /proto.NezhaService/*
     }
-
     reverse_proxy @grpcProto {
         header_up Host {host}
         header_up nz-realip {remote_host}

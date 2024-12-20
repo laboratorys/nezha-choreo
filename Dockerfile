@@ -16,7 +16,7 @@ RUN curl -L "https://github.com/caddyserver/caddy/releases/download/v${CADDY_VER
    && chmod +x caddy
 
 ARG BAK_VERSION=2.0
-RUN cd $WORKDIR && curl -L "https://github.com/laboratorys/backup-to-github/releases/download/v${BAK_VERSION}/backup2gh-v${BAK_VERSION}-linux-amd64.tar.gz" -o backup-to-github.tar.gz \
+RUN curl -L "https://github.com/laboratorys/backup-to-github/releases/download/v${BAK_VERSION}/backup2gh-v${BAK_VERSION}-linux-amd64.tar.gz" -o backup-to-github.tar.gz \
     && tar -xzf backup-to-github.tar.gz \
     && rm backup-to-github.tar.gz \
     && chmod +x backup2gh
@@ -28,7 +28,7 @@ RUN curl -L "https://github.com/nezhahq/nezha/releases/download/v${NEZHA_VERSION
     && rm dashboard-linux-amd64.zip \
     && chmod +x dashboard
 
-COPY caddy_file /app
+COPY caddy_file.txt /app
 COPY entrypoint.sh /app
 RUN chmod +x /app/entrypoint.sh
 
