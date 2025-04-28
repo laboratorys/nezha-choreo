@@ -24,7 +24,7 @@ RUN curl -L "https://github.com/nezhahq/nezha/releases/download/v${NEZHA_VERSION
 
 RUN mkdir -p /app/data #&& chown -R choreouser:choreo /app/data
 
-#USER 10014
+USER 10014
 EXPOSE 8008
 WORKDIR /app
 ENTRYPOINT ["/bin/sh", "-c", "/app/dashboard"]
