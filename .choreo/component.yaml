@@ -1,24 +1,17 @@
-apiVersion: core.choreo.dev/v1beta1
-kind: ComponentConfig
-spec:
-  inbound:
-    # gRPC Endpoint Configuration
-    - name: YourGRPCService
-      port: 8008
-      type: GRPC
-      networkVisibility: Public
-      context: /proto.NezhaService
-    # WebSocket Endpoint Configuration
-    - name: YourWebSocketService
+# +required The configuration file schema version
+schemaVersion: 1.2
+endpoints:
+  - name: nezha-grpc
+    service:
+      basePath: /api/v1/ws
       port: 8008
       type: WS
-      networkVisibility: Public
-      context: /api/v1/ws
-    # Web Endpoint Configuration
-    - name: YourWebService
+      networkVisibilities:
+        - Public
+  - name: nezha_web
+    service:
+      basePath: /
       port: 8008
-      type: REST
-      networkVisibility: Public
-      context: /
-  #outbound:
-  # Define your outbound connections here if necessary
+    type: REST
+    networkVisibilities:
+      - Public
