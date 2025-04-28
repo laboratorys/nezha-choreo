@@ -22,9 +22,8 @@ RUN curl -L "https://github.com/nezhahq/nezha/releases/download/v${NEZHA_VERSION
     && rm dashboard-linux-amd64.zip \
     && chmod +x dashboard
 
-RUN mkdir -p /app/data #&& chown -R choreouser:choreo /app/data
-
 USER 10014
+RUN mkdir -p /app/data #&& chown -R choreouser:choreo /app/data
 EXPOSE 8008
 WORKDIR /app
 ENTRYPOINT ["/bin/sh", "-c", "/app/dashboard"]
