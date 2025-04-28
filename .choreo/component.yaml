@@ -4,10 +4,10 @@ endpoints:
   - name: nezha-grpc
     service:
       basePath: /api/v1/ws
-      port: 8008
-      type: WS
-      networkVisibilities:
-        - Public
+    port: 8008
+    type: WS
+    networkVisibilities:
+      - Public
   - name: nezha_web
     service:
       basePath: /
