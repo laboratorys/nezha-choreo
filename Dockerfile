@@ -6,8 +6,9 @@ RUN apk add --no-cache tzdata && cp /usr/share/zoneinfo/Asia/Shanghai /etc/local
     && apk del tzdata
 RUN addgroup -g 10014 choreo && \
     adduser  --disabled-password  --no-create-home --uid 10014 --ingroup choreo choreouser
-
+USER 10014
 WORKDIR /app
+RUN mkdir -p /app/data
 
 ARG BAK_VERSION=2.0
 RUN curl -L "https://github.com/laboratorys/backup-to-github/releases/download/v${BAK_VERSION}/backup2gh-v${BAK_VERSION}-linux-amd64.tar.gz" -o backup-to-github.tar.gz \
@@ -23,7 +24,7 @@ RUN curl -L "https://github.com/nezhahq/nezha/releases/download/v${NEZHA_VERSION
     && chmod +x dashboard
 
 USER 10014
-RUN mkdir -p /app/data #&& chown -R choreouser:choreo /app/data
+
 EXPOSE 8008
 WORKDIR /app
 ENTRYPOINT ["/bin/sh", "-c", "/app/dashboard"]
