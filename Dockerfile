@@ -26,5 +26,4 @@ RUN curl -L "https://github.com/nezhahq/nezha/releases/download/v${NEZHA_VERSION
 USER 10014
 
 EXPOSE 8008
-WORKDIR /app
 ENTRYPOINT ["/bin/sh", "-c", "/app/dashboard"]
